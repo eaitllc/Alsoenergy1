@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Also Energy</title>
+    <script src="https://cdn.rawgit.com/lingtalfi/simpledrag/master/simpledrag.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">AlsoEnergy Coding Challenge 
+        <img src="/images/also logo.png" height="50"> 
+    </div>
+    <div class="panes-container">
+        <div class="left-pane" id="left-pane">
+            <p>Energy Sources:</p>
+            <ul>
+                <li><a href="#">Solar</a></li>
+                <li><a href="#">Coal</a></li>
+                <li><a href="#">Geothermal</a></li>
+                <li><a href="#">Oil</a></li>
+                <li><a href="#">Nuclear</a></li>
+                <li><a href="#">Tidals</a></li>
+                <li><a href="#">Wind</a></li>
+            </ul>
+        </div>
+        <div class="panes-separator" id="panes-separator"></div>
+        <div class="right-pane" id="right-pane">
+            <p>Content</p>
+        </div>
+    </div>
+    <div class="footer">
+        Footer: AlsoEnergy
+    </div>
+
+    <script>
+        var leftPane = document.getElementById('left-pane');
+        var rightPane = document.getElementById('right-pane');
+        var paneSep = document.getElementById('panes-separator');
+        var leftLimit = 10;
+        var rightLimit = 90;
+
+        paneSep.sdrag(function (el, pageX, startX, pageY, startY, fix) {
+
+            fix.skipX = true;
+
+            if (pageX < window.innerWidth * leftLimit / 100) {
+                pageX = window.innerWidth * leftLimit / 100;
+                fix.pageX = pageX;
+            }
+            if (pageX > window.innerWidth * rightLimit / 100) {
+                pageX = window.innerWidth * rightLimit / 100;
+                fix.pageX = pageX;
+            }
+
+            var cur = pageX / window.innerWidth * 100;
+            if (cur < 0) {
+                cur = 0;
+            }
+            if (cur > window.innerWidth) {
+                cur = window.innerWidth;
+            }
+
+
+            var right = (100-cur-2);
+            leftPane.style.width = cur + '%';
+            rightPane.style.width = right + '%';
+
+        }, null, 'horizontal');
+    </script>
+</body>
+</html>

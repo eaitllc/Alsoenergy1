@@ -1,0 +1,56 @@
+html, body {
+    height: 100%;
+}
+
+.panes-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.left-pane {
+    width: 18%;
+    background: #ccc;
+}
+
+.panes-separator {
+    width: 0.5%;
+    background: gray;
+    position: relative;
+    cursor: col-resize;
+}
+
+.right-pane {
+    flex: auto;
+    background: #eee;
+}
+
+.panes-container{
+    margin: 0;
+    padding: 0;
+    height: 80%;
+}
+.panes-separator,
+.left-pane,
+.right-pane {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.header {
+    text-align: left;
+    vertical-align: middle;
+    background-color:green;
+    left:0px; 
+    right:0px; 
+}
+
+.footer {
+    position:relative; 
+    bottom:0px; 
+    height:10%; 
+    left:0px; 
+    right:0px; 
+    overflow:hidden; 
+    background-color:gray
+}
